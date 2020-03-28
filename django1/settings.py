@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'course',
-    'docs',
+    'doc',
     'news',
     'corsheaders',  # 配置跨域
 ]
@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'django1.wsgi.application'
 # 跨域增加忽略
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    '*'
-)
+# CORS_ORIGIN_WHITELIST = (
+#     '*',
+# )
 
 CORS_ALLOW_METHODS = (
     'DELETE',
