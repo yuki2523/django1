@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'course',
     'docs',
     'news',
+    'corsheaders',  # 配置跨域
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # 这两行还是跨域
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'django1.urls'
@@ -76,6 +79,36 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django1.wsgi.application'
 
+# 跨域增加忽略
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (
+    '*'
+)
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    'VIEW',
+)
+
+CORS_ALLOW_HEADERS = (
+    'XMLHttpRequest',
+    'X_FILENAME',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'Pragma',
+)
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
